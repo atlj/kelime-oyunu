@@ -2,7 +2,7 @@ import React from "react";
 import cn from "classnames";
 
 type Props = {
-    className: string;
+    className?: string;
 };
 
 export const Container: React.FC<Props> = ({ children = null, className }) => {
