@@ -6,10 +6,11 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "svgr": "npx @svgr/cli -d src/components/icons --ignore-existing --icon --typescript public/icons",
+        "svgr": "svgr -d src/components/icons --icon --typescript public/icons && yarn lint:fix",
         "build:analyze": "ANALYZE=true npm run build",
         "lint": "eslint '**/*.{js,jsx,ts,tsx}'",
         "prettier": "prettier --write '**/*.{js,jsx,ts,tsx}'",
+        "lint:fix": "eslint --fix . --ext .js,.jsx,.ts,.tsx",
         "test": "jest -c test/jest.config.js"
     },
     "dependencies": {
