@@ -30,7 +30,7 @@ export const ColoredLabel: React.FC<IButton> = ({
             <div
                 data-testid="button-text"
                 className={cn(
-                    "font-sans font-extrabold text-3xl mb-2 ",
+                    "font-sans text-left font-extrabold text-3xl mb-2 ",
                     textClassName,
                 )}
             >
