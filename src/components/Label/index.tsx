@@ -25,7 +25,7 @@ export const Label: React.FC<IButton> = ({
             <div
                 data-testid="button-text"
                 className={cn(
-                    "font-sans font-extrabold text-xl",
+                    "font-sans font-extrabold text-xl md:text-2xl",
                     textClassName,
                 )}
             >

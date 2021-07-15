@@ -16,14 +16,14 @@ export const LetterBox: React.FC<IButton> = ({
         <div
             className={cn(
                 styles.label,
-                "rounded-md w-8 h-8 justify-center items-center bg-white flex hover:shadow-none",
+                "rounded-md md:rounded-2xl w-8 h-8 md:w-14 md:h-14 justify-center items-center bg-white flex hover:shadow-none",
                 className,
             )}
             data-testid="rectangle-button"
         >
             <div
                 data-testid="button-text"
-                className={cn("font-sans font-extrabold text-xl")}
+                className={cn("font-sans font-bold text-xl md:text-3xl")}
             >
                 {letter !== null ? letter : "_"}
             </div>
