@@ -1,7 +1,13 @@
 import React from "react";
 import Image from "next/image";
 
-import { Container, CircleButton, Label, ColoredLabel } from "@components";
+import {
+    Container,
+    CircleButton,
+    CircleBase,
+    Label,
+    ColoredLabel,
+} from "@components";
 import * as Icons from "@icons";
 
 const Home: React.FC = () => {
@@ -11,31 +17,35 @@ const Home: React.FC = () => {
                 className="md:pr-12 md:pl-12 md:pb-6 md:pt-6 "
                 textClassName="font-bold text-4xl md:text-5xl "
                 text="Kelime Oyunu"
+                data-testid="label"
             />
             <div className="mt-7 md:flex-row md:flex items-center justify-center ">
                 <ColoredLabel
                     className="bg-softGreen"
                     text="Dosya Yükle"
                     subText="Oyunu başlatmak için dosya yükle"
+                    data-testid="upload"
                 >
-                    <CircleButton>
+                    <CircleBase>
                         <Icons.Navigation className="w-7 h-7  " color="black" />
-                    </CircleButton>
+                    </CircleBase>
                 </ColoredLabel>
                 <ColoredLabel
                     className="bg-softYellow mt-7 md:mt-0 md:ml-16  "
                     text="Yeni Oyun Oluştur"
                     subText="Yeni bir oyun hazırla ve kaydet"
+                    data-testid="nessawgame"
                 >
-                    <CircleButton>
+                    <CircleBase>
                         <Icons.Plus className="w-7 h-7  " color="black" />
-                    </CircleButton>
+                    </CircleBase>
                 </ColoredLabel>
             </div>
             <a
                 href="https://github.com/atlj"
                 target="_blank"
                 className="self-center md:mt-0 mt-7 "
+                data-testid="bottomlink"
             >
                 <CircleButton>
                     <Image width={58} height={58} src="/res/atljicon.png" />
