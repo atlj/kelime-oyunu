@@ -17,14 +17,12 @@ const Home: React.FC = () => {
                 className="md:pr-12 md:pl-12 md:pb-6 md:pt-6 "
                 textClassName="font-bold text-4xl md:text-5xl "
                 text="Kelime Oyunu"
-                data-testid="label"
             />
             <div className="mt-7 md:flex-row md:flex items-center justify-center ">
                 <ColoredLabel
                     className="bg-softGreen"
                     text="Dosya Yükle"
                     subText="Oyunu başlatmak için dosya yükle"
-                    data-testid="upload"
                 >
                     <CircleBase>
                         <Icons.Navigation className="w-7 h-7  " color="black" />
@@ -34,7 +32,6 @@ const Home: React.FC = () => {
                     className="bg-softYellow mt-7 md:mt-0 md:ml-16  "
                     text="Yeni Oyun Oluştur"
                     subText="Yeni bir oyun hazırla ve kaydet"
-                    data-testid="nessawgame"
                 >
                     <CircleBase>
                         <Icons.Plus className="w-7 h-7  " color="black" />
