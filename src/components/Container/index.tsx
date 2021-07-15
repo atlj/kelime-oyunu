@@ -1,5 +1,14 @@
 import React from "react";
+import cn from "classnames";
 
-export const Container: React.FC = ({ children = null }) => {
-    return <div className="min-h-screen flex flex-col">{children}</div>;
+type Props = {
+    className: string;
+};
+
+export const Container: React.FC<Props> = ({ children = null, className }) => {
+    return (
+        <div className={cn("min-h-screen flex flex-col", className)}>
+            {children}
+        </div>
+    );
 };
