@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@test";
 
 import { ColoredLabel } from "./index";
 
-describe("Rectangle button", () => {
+describe("Colored Label", () => {
     it("renders without crashing", () => {
         const component = render(
             <ColoredLabel subText="" text="" onClick={() => undefined} />,

@@ -2,7 +2,7 @@ import { render, screen } from "@test";
 
 import { Label } from "./index";
 
-describe("Rectangle button", () => {
+describe("Label", () => {
     it("renders without crashing", () => {
         const component = render(<Label text="" />);
 
