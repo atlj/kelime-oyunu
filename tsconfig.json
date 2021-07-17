@@ -27,7 +27,11 @@
             "@components/icons": ["src/components/icons"],
             "@i18n": ["./i18n"],
             "@test/*": ["test/*"],
-            "@test": ["test"]
+            "@test": ["test"],
+            "@pages/*": ["pages/*"],
+            "@pages": ["pages"],
+            "@typings": ["src/types"],
+            "@typings/*": ["src/types/*"]
         }
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
