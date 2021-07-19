@@ -8,6 +8,7 @@ type Props = {
     placeholder: string;
     minRows?: number;
     onChange: React.ChangeEventHandler<HTMLTextAreaElement>;
+    value?: string;
 };
 
 export const TextInput: React.FC<Props> = ({
@@ -15,11 +16,12 @@ export const TextInput: React.FC<Props> = ({
     placeholder = "",
     minRows = 4,
     onChange,
+    value,
 }) => {
     return (
         <TextAreaResize
+            value={value}
             placeholder={placeholder}
-            data-testid="textarea"
             minRows={minRows}
             onChange={onChange}
             className={cn(
