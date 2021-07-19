@@ -21,7 +21,6 @@ export const CircleButton: React.FC<IButton> = ({
                 `rounded-full w-14 h-14 bg-white justify-center items-center flex hover:no ${className}`,
             )}
             {...rest}
-            data-testid="circle-button"
         >
             {children}
         </button>

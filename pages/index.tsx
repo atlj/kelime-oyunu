@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import {
     Container,
@@ -28,15 +29,17 @@ const Home: React.FC = () => {
                         <Icons.Navigation className="w-7 h-7  " color="black" />
                     </CircleBase>
                 </ColoredLabel>
-                <ColoredLabel
-                    className="bg-softYellow mt-7 md:mt-0 md:ml-16  "
-                    text="Yeni Oyun Oluştur"
-                    subText="Yeni bir oyun hazırla ve kaydet"
-                >
-                    <CircleBase>
-                        <Icons.Plus className="w-7 h-7  " color="black" />
-                    </CircleBase>
-                </ColoredLabel>
+                <Link href="/create">
+                    <ColoredLabel
+                        className="bg-softYellow mt-7 md:mt-0 md:ml-16  "
+                        text="Yeni Oyun Oluştur"
+                        subText="Yeni bir oyun hazırla ve kaydet"
+                    >
+                        <CircleBase>
+                            <Icons.Plus className="w-7 h-7  " color="black" />
+                        </CircleBase>
+                    </ColoredLabel>
+                </Link>
             </div>
             <a
                 href="https://github.com/atlj"
