@@ -4,6 +4,7 @@ import "tailwindcss/tailwind.css";
 import "@styles/global.scss";
 import { appWithTranslation } from "@i18n";
 import Head from "next/head";
+import { GameContextProvider } from "@utils/context";
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     return (
@@ -16,7 +17,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                     rel="stylesheet"
                 />
             </Head>
-            <Component {...pageProps} />
+            <GameContextProvider>
+                <Component {...pageProps} />
+            </GameContextProvider>
         </>
     );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,8 +10,38 @@ import {
     ColoredLabel,
 } from "@components";
 import * as Icons from "@icons";
+import { useDropzone } from "react-dropzone";
+import { Game } from "@typings/logic";
+import { validateGame } from "@utils/validate";
+import { useRouter } from "next/router";
+import { useGameContext } from "@utils/hooks";
 
 const Home: React.FC = () => {
+    const router = useRouter();
+    const gameContext = useGameContext();
+
+    const onDrop = useCallback(async (acceptedFiles: File[] | undefined, _) => {
+        if (acceptedFiles !== undefined && acceptedFiles.length > 0) {
+            const textData = await acceptedFiles[0].text();
+            const game: Game = JSON.parse(textData);
+            if (!validateGame(game)) {
+                alert("Please upload a valid file");
+            } else {
+                gameContext.setGameData(game);
+                router.push("/game");
+            }
+        } else {
+            alert("Please upload a valid file");
+        }
+    }, []);
+
+    const { getRootProps, getInputProps } = useDropzone({
+        onDrop,
+        multiple: false,
+        preventDropOnDocument: true,
+        accept: "application/json",
+    });
+
     return (
         <Container className="pr-6 pl-6 pt-6 items-center md:justify-around ">
             <Label
@@ -21,13 +51,32 @@ const Home: React.FC = () => {
             />
             <div className="mt-7 md:flex-row md:flex items-center justify-center ">
                 <ColoredLabel
-                    className="bg-softGreen"
+                    {...getRootProps()}
+                    className="bg-softGreen "
                     text="Dosya Yükle"
                     subText="Oyunu başlatmak için dosya yükle"
                 >
-                    <CircleBase>
-                        <Icons.Navigation className="w-7 h-7  " color="black" />
-                    </CircleBase>
+                    <>
+                        <div
+                            style={{
+                                backgroundColor: "red",
+                            }}
+                        >
+                            <input
+                                style={{
+                                    flex: 1,
+                                    position: "absolute",
+                                }}
+                                {...getInputProps()}
+                            />
+                        </div>
+                        <CircleBase>
+                            <Icons.Navigation
+                                className="w-7 h-7  "
+                                color="black"
+                            />
+                        </CircleBase>
+                    </>
                 </ColoredLabel>
                 <Link href="/create">
                     <ColoredLabel
