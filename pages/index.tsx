@@ -13,24 +13,27 @@ import * as Icons from "@icons";
 import { useDropzone } from "react-dropzone";
 import { Game } from "@typings/logic";
 import { validateGame } from "@utils/validate";
+import { useRouter } from "next/router";
+import { useGameContext } from "@utils/hooks";
 
 const Home: React.FC = () => {
-    const onDrop = useCallback(
-        async (acceptedFiles: File[] | undefined, _, event) => {
-            if (acceptedFiles !== undefined && acceptedFiles.length > 0) {
-                const textData = await acceptedFiles[0].text();
-                const game: Game = JSON.parse(textData);
-                if (!validateGame(game)) {
-                    alert("Please upload a valid file");
-                } else {
-                    //TODO Start Game
-                }
-            } else {
+    const router = useRouter();
+    const gameContext = useGameContext();
+
+    const onDrop = useCallback(async (acceptedFiles: File[] | undefined, _) => {
+        if (acceptedFiles !== undefined && acceptedFiles.length > 0) {
+            const textData = await acceptedFiles[0].text();
+            const game: Game = JSON.parse(textData);
+            if (!validateGame(game)) {
                 alert("Please upload a valid file");
+            } else {
+                gameContext.setGameData(game);
+                router.push("/game");
             }
-        },
-        [],
-    );
+        } else {
+            alert("Please upload a valid file");
+        }
+    }, []);
 
     const { getRootProps, getInputProps } = useDropzone({
         onDrop,
