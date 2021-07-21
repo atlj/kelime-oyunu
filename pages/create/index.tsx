@@ -106,6 +106,9 @@ const Create: React.FC = () => {
                                                 noUndefined &&
                                                 time !== undefined
                                             ) {
+                                                if (time === 31) {
+                                                    alert("sj");
+                                                }
                                                 saveGame();
                                             }
                                         }}

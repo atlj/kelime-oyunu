@@ -20,7 +20,7 @@ const Home: React.FC = () => {
     const router = useRouter();
     const gameContext = useGameContext();
 
-    const onDrop = useCallback(async (acceptedFiles: File[] | undefined, _) => {
+    const onDrop = useCallback(async (acceptedFiles: File[] | undefined) => {
         if (acceptedFiles !== undefined && acceptedFiles.length > 0) {
             const textData = await acceptedFiles[0].text();
             const game: Game = JSON.parse(textData);
